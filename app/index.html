@@ -13,10 +13,10 @@
 <body>
    <div ng-controller="bookly.BooksController" class="container">
       <h4>Filter: <input type="text" ng-model="query" />
-        <select>
-          <option value="title">Title</option>
+        <select ng-model="book" ng-options="b.title for b in books">
+<!--           <option value="title">Title</option>
           <option value="author">Author</option>
-          <option value="price">Price</option>
+          <option value="price">Price</option> -->
         </select>
       </h4>
       <div class="row">
@@ -33,7 +33,7 @@
 
           <div class="cart-button">
             <span class="price">{{book.price | currency}}
-             <button ng-click="add(book)">Add</button> <!-- Add to cart button  -->
+             <button ng-click="addToCart(book)">Add</button> <!-- Add to cart button  -->
           </div>
         </div>
         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 cart">
@@ -42,8 +42,10 @@
           <tr>
             <th width='40%'>Title</th><th width='40%'>Author</th><th width='20%'>Price</th>
           </tr>
-          <tr>
-            <td colspan=3>[[a row for each cart item]]</td>
+          <tr ng-model="book" ng-repeat="book in cart">
+            <td>Title: {{book.title}}</td> 
+            <td>Author: {{book.author}}</td>
+            <td>Price: {{book.price}}</td>
           </tr>
           <tr class="cart-total">
             <td colspan=2 width='80%'>Total</td><td width='20%'>[[total]]</td>
