@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 cart">
-          <h3>your cart has {{cart.length}} items. </h3>
+          <h3>your cart has {{car}} items. </h3>
           <table class="carttable">
           <tr>
             <th width='40%'>Title</th><th width='40%'>Author</th><th width='20%'>Price</th>
@@ -48,7 +48,7 @@
             <td>Price: {{book.price}}</td>
           </tr>
           <tr class="cart-total">
-            <td colspan=2 width='80%'>Total</td><td width='20%'>[[total]]</td>
+            <td colspan=2 width='80%'>Total</td><td width='20%'>{{totalPrice() | currency }}</td>
           </tr>
           </table>
           <div class="btn-group cart-button">
