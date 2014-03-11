@@ -12,5 +12,7 @@ bookly.BooksController = function($scope) {
     $scope.cart.push(book);
   };
 
+  
+
 
 };
